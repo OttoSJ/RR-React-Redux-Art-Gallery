@@ -20,6 +20,7 @@ function App(props) {
   }, [props.objectId, dispatch])
 
 
+
   return (
     <div className="App">
       <div>
@@ -28,9 +29,12 @@ function App(props) {
         <button onClick={() => dispatch(incrementId())}>Next</button>
         <button onClick={() => dispatch(decrementId())}>Back</button>
       </div>
-      <input onChange={(e) => { }} />
+      <input value={ data.objectId } onChange={(e) => {
+        dispatch(inputId(Number(e.target.value)))
+      }} />
       <div>
-        {/* Once you have plugged everything in, render the image here! */}
+        {data.objectId}
+        {renderImg()}
       </div>
     </div>
   );
